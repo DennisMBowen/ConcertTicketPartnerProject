@@ -22,12 +22,12 @@
 <h1>List of All Events:</h1>
 <form method ="post" action="navigationServlet">
 <table>
-	<c:forEach items="${requestScope.allEventss}" var="currentevent">
+	<c:forEach items="${requestScope.allEvents}" var="currentevent">
 	<tr>
 		<td><input type="radio" name="id" value="${currentevent.id}"></td>
 		<td>${currentevent.artist}</td>
-		<td>${currentevent.date}</td>
-		<td>${currentevent.time}</td>
+		<td>${currentevent.concertDate}</td>
+		<td>${currentevent.concertTime}</td>
 	</tr>
 	</c:forEach>
 </table>
