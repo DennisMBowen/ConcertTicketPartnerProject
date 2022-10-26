@@ -16,7 +16,7 @@ import model.ListEvent;
 
 public class ListEventHelper {
 	static EntityManagerFactory emfactory =
-			Persistence.createEntityManagerFactory("ConcertEvent");
+			Persistence.createEntityManagerFactory("ConcertTicketPartnerProject");
 	
 	public ListEventHelper() {
 		super();
