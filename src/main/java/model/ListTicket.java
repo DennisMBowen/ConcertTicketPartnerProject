@@ -5,18 +5,22 @@
  */
 package model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="tickets")
 public class ListTicket {
 	@Id
 	@GeneratedValue
 	private int id;
-	private Double price;
-	private int ticketsRemaining;
-	private int maxTickets = 50; //constant value?
+	private double price;
+	private String customer;
+	private String venueRow;
+	private String seatNumber;
 	
 	//Getters and Setters
 	public Double getPrice() {
@@ -25,11 +29,25 @@ public class ListTicket {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	public int getTicketsRemaining() {
-		return ticketsRemaining;
+	
+	public String getCustomer() {
+		return customer;
 	}
-	public void setTicketsRemaining(int ticketsRemaining) {
-		this.ticketsRemaining = ticketsRemaining;
+	
+	public void setCustomer(String customer) {
+		this.customer = customer;
+	}
+	public String getVenueRow() {
+		return venueRow;
+	}
+	public void setVenueRow(String venueRow) {
+		this.venueRow = venueRow;
+	}
+	public String getSeatNumber() {
+		return seatNumber;
+	}
+	public void setSeatNumber(String seatNumber) {
+		this.seatNumber = seatNumber;
 	}
 	
 	
@@ -38,19 +56,30 @@ public class ListTicket {
 		super();
 	}
 	
-	public ListTicket(Double price) {
+	public ListTicket(int id, double price, String customer, String venueRow, String seatNumber) {
+		super();
+		this.id = id;
+		this.price = price;
+		this.customer = customer;
+		this.venueRow = venueRow;
+		this.seatNumber = seatNumber;
+	}
+	
+	
+	public ListTicket(double price, String customer, String venueRow, String seatNumber) {
 		super();
 		this.price = price;
+		this.customer = customer;
+		this.venueRow = venueRow;
+		this.seatNumber = seatNumber;
 	}
-	
-	//Methods
-	
-	
 	@Override
 	public String toString() {
-		return "ListTicket [price=" + price + ", ticketsRemaining=" + ticketsRemaining + ", maxTickets=" + maxTickets
-				+ "]";
+		return "ListTicket [id=" + id + ", price=" + price + ", customer=" + customer + ", venueRow=" + venueRow
+				+ ", seatNumber=" + seatNumber + "]";
 	}
 	
+	
+
 	
 }

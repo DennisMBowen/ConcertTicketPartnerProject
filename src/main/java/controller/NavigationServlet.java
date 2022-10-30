@@ -42,7 +42,7 @@ public class NavigationServlet extends HttpServlet {
 		
 		String path = "/viewAllEventsServlet";
 
-		if (act.equals("delete")) {
+		if (act.equals("Delete Event")) {
 			try {
 				Integer tempId = Integer.parseInt(request.getParameter("id"));
 				ListEvent eventToDelete = l.searchForEventById(tempId);
@@ -52,7 +52,7 @@ public class NavigationServlet extends HttpServlet {
 				System.out.println("Please select an event");
 			}
 
-		} else if (act.equals("edit")) {
+		} else if (act.equals("Edit Event")) {
 			try {
 				Integer tempId = Integer.parseInt(request.getParameter("id"));
 				ListEvent eventToEdit = l.searchForEventById(tempId);
@@ -62,9 +62,13 @@ public class NavigationServlet extends HttpServlet {
 				System.out.println("Please select an event");
 			}
 
-		} else if (act.equals("add")) {
+		} else if (act.equals("Add Event")) {
 			path = "/index.html";
 
+		} else if (act.equals("Add Concert Ticket")) {
+			path = "/add-ticket.html";
+		} else if (act.equals("View Ticket Database")) {
+			path = "/viewAllTicketsServlet";
 		}
 
 		getServletContext().getRequestDispatcher(path).forward(request, response);

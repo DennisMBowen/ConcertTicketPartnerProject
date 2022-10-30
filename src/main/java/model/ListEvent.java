@@ -8,12 +8,14 @@ package model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,8 +31,8 @@ public class ListEvent {
 	private LocalDate concertDate;
 	@Column
 	private LocalTime concertTime;
-	@JoinColumn
-	private ListTicket ticket;
+	//@OneToMany
+	//private List <ListTicket> listOfTickets;
 	
 	//Getters and Setters
 	public int getId() {
@@ -65,14 +67,14 @@ public class ListEvent {
 		this.concertTime = concertTime;
 	}
 	
-	public ListTicket getTicket() {
-		return ticket;
-	}
-	
-	public void setTicket(ListTicket ticket) {
-		this.ticket = ticket;
-	}
-	
+	//public List<ListTicket> getListOfTickets() {
+	//	return listOfTickets;
+	//}
+
+	//public void setListOfTickets(List<ListTicket> listOfTickets) {
+	//	this.listOfTickets = listOfTickets;
+	//}
+
 	//Constructors
 	public ListEvent() {
 		super();
