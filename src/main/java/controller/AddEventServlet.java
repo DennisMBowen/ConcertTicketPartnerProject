@@ -47,7 +47,6 @@ public class AddEventServlet extends HttpServlet {
 	    	String year = request.getParameter("year");
 	    	String hour = request.getParameter("hour");
 	    	String minutes = request.getParameter("minutes");
-			String time = request.getParameter("concertTime");
 			String fullTime;
 			
 			LocalDate ld;
