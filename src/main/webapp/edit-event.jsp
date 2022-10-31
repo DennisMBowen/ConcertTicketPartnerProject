@@ -22,6 +22,7 @@
 <br />
 <form action = "editEventServlet" method="post">
 <div>
+<input type = "hidden" name = "id" value="${eventToEdit.id}">
 <div><label for="artist"> Artist:</label> <input type="text" id="artist" name="artist" value= "${eventToEdit.artist}"></div>
 <br>
 <div><label>Current Concert Date: </label>
