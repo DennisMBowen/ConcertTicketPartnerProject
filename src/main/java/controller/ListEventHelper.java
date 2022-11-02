@@ -82,16 +82,16 @@ public class ListEventHelper {
 		return foundConcertTimes;
 	}
 	
-	public ListEvent searchForEventById(int eventId) {
+	public ListEvent searchForEventById(int id) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		ListEvent found = em.find(ListEvent.class, eventId);
+		ListEvent found = em.find(ListEvent.class, id);
 		em.close();
 		return found;
 	}
 	
-	public void updateStudent(ListEvent toEdit) {
+	public void updateEvent(ListEvent toEdit) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
@@ -102,5 +102,4 @@ public class ListEventHelper {
 	public void cleanUp(){
 		emfactory.close();
 		}
-	
 }
