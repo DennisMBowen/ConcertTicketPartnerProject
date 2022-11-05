@@ -17,8 +17,8 @@
 <body>
 <form action="addTicketServlet" method="post">
 <h1>Add Tickets</h1>
-<h2>Concert:</h2><h2>"${currentEvent.artist}"</h2>
-<input type = "hidden" name = "id" value="${currentEvent.id}">
+<h2>Concert: ${currentEvent.artist}</h2>
+<input type = "hidden" name = "id" value="${currentEvent.eventId}">
 <div><label for="price"> Ticket Price:</label> <input type="text" id="price" name="price"></div>
 <br>
 <div><label for="customer"> Customer Name: </label><input type ="text" id="customer" name="customer"></div>

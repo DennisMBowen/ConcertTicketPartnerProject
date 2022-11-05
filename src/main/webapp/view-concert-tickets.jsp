@@ -19,16 +19,16 @@
 	}
 </style>
 <body>
-<h1>Tickets for ${currentEvent.artist})</h1>
+<h1>Tickets for ${currentEvent.artist}</h1>
 <form method ="post" action="navigationServlet">
 <table>
-	<c:forEach items="${requestScope.currentEvent.eventId}" var="currentticket">
 	<tr>
 	 	<th>Price</th>
 	 	<th>Customer Name</th>
 	 	<th>Row</th>
 	 	<th>Seat Number</th>
 	</tr> 	
+	<c:forEach items="${requestScope.currentEvent.listOfTickets}" var="currentticket">	
 	<tr>
 		<td>${currentticket.price}</td>
 		<td>${currentticket.customer}</td>

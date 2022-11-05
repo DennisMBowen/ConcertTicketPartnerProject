@@ -87,6 +87,7 @@ public class ListEventHelper {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		ListEvent found = em.find(ListEvent.class, id);
+		em.refresh(found);
 		em.close();
 		return found;
 	}

@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,73 +24,66 @@ import javax.persistence.Table;
 @Table(name="events")
 public class ListEvent {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	@GeneratedValue
+	private int eventId;
 	private String artist;
 	private LocalDate concertDate;
 	private LocalTime concertTime;
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="eventID")
+	private List<ListTicket> listOfTickets;
 	
+	public List<ListTicket> getListOfTickets() {
+		return listOfTickets;
+	}
+	public void setListOfTickets(List<ListTicket> listOfTickets) {
+		this.listOfTickets = listOfTickets;
+	}
 	//Getters and Setters
 	public int getEventId() {
-		return id;
+		return eventId;
 	}
-
 	public void setEventId(int eventId) {
-		this.id = eventId;
+		this.eventId = eventId;
 	}
-	
 	public String getArtist() {
 		return artist;
 	}
-
 	public void setArtist(String artist) {
 		this.artist = artist;
 	}
-	
 	public LocalDate getConcertDate() {
 		return concertDate;
 	}
-	
 	public void setConcertDate(LocalDate concertDate) {
 		this.concertDate = concertDate;
 	}
-	
 	public LocalTime getConcertTime() {
 		return concertTime;
 	}
-	
 	public void setConcertTime(LocalTime concertTime) {
 		this.concertTime = concertTime;
 	}
-
-
-	//Constructors
+	
+	
 	public ListEvent() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
-	
 	public ListEvent(String artist, LocalDate concertDate, LocalTime concertTime) {
 		super();
 		this.artist = artist;
 		this.concertDate = concertDate;
 		this.concertTime = concertTime;
 	}
-
-	//Methods
 	@Override
 	public String toString() {
-		return "ListEvent [eventId=" + id + ", artist=" + artist + ", concertDate=" + concertDate + ", concertTime="
-				+ concertTime + "]";
+		return "ListEvent [eventId=" + eventId + ", artist=" + artist + ", concertDate=" + concertDate
+				+ ", concertTime=" + concertTime + "]";
 	}
-
-	/**
-	 * @param newTicket
-	 */
-	/*public void addTicket(ListTicket newTicket) {
-		// TODO Auto-generated method stub
-		this.listOfTickets.add(newTicket);
-		
-	}*/
 	
+	
+	
+	
+
 	
 }

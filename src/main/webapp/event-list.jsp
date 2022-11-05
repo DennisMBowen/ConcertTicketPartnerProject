@@ -24,7 +24,7 @@
 <table>
 	<c:forEach items="${requestScope.allEvents}" var="currentevent">
 	<tr>
-		<td><input type="radio" name="id" value="${currentevent.id}"></td>
+		<td><input type="radio" name="id" value="${currentevent.eventId}"></td>
 		<td>${currentevent.artist}</td>
 		<td>${currentevent.concertDate}</td>
 		<td>${currentevent.concertTime}</td>

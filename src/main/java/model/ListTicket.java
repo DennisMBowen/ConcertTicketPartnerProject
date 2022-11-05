@@ -27,8 +27,6 @@ public class ListTicket {
 	private String venueRow;
 	private String seatNumber;
 	@ManyToOne
-	@JoinTable(name="events",
-		joinColumns = @JoinColumn(name = "eventID", referencedColumnName="eventID"))
 	private ListEvent eventID;
 	
 	//Getters and Setters
