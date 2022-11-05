@@ -13,6 +13,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -22,31 +23,25 @@ import javax.persistence.Table;
 @Table(name="events")
 public class ListEvent {
 	@Id
-	@GeneratedValue
-	@Column
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	@Column
 	private String artist;
-	@Column
 	private LocalDate concertDate;
-	@Column
 	private LocalTime concertTime;
-	//@OneToMany
-	//private List <ListTicket> listOfTickets;
 	
 	//Getters and Setters
-	public int getId() {
+	public int getEventId() {
 		return id;
 	}
-	
-	public void setId(int id) {
-		this.id = id;
+
+	public void setEventId(int eventId) {
+		this.id = eventId;
 	}
 	
 	public String getArtist() {
 		return artist;
 	}
-	
+
 	public void setArtist(String artist) {
 		this.artist = artist;
 	}
@@ -66,14 +61,7 @@ public class ListEvent {
 	public void setConcertTime(LocalTime concertTime) {
 		this.concertTime = concertTime;
 	}
-	
-	//public List<ListTicket> getListOfTickets() {
-	//	return listOfTickets;
-	//}
 
-	//public void setListOfTickets(List<ListTicket> listOfTickets) {
-	//	this.listOfTickets = listOfTickets;
-	//}
 
 	//Constructors
 	public ListEvent() {
@@ -90,9 +78,18 @@ public class ListEvent {
 	//Methods
 	@Override
 	public String toString() {
-		return "ListEvent [id=" + id + ", artist=" + artist + ", concertDate=" + concertDate + ", concertTime="
+		return "ListEvent [eventId=" + id + ", artist=" + artist + ", concertDate=" + concertDate + ", concertTime="
 				+ concertTime + "]";
 	}
+
+	/**
+	 * @param newTicket
+	 */
+	/*public void addTicket(ListTicket newTicket) {
+		// TODO Auto-generated method stub
+		this.listOfTickets.add(newTicket);
+		
+	}*/
 	
 	
 }

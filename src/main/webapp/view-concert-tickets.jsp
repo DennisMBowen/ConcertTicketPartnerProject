@@ -7,7 +7,7 @@
 <meta charset="ISO-8859-1">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>View All Events</title>
+<title>View All Tickets</title>
 </head>
 <style>
 	form{
@@ -19,15 +19,21 @@
 	}
 </style>
 <body>
-<h1>List of All Events:</h1>
+<h1>Tickets for ${currentEvent.artist})</h1>
 <form method ="post" action="navigationServlet">
 <table>
-	<c:forEach items="${requestScope.allEvents}" var="currentevent">
+	<c:forEach items="${requestScope.currentEvent.eventId}" var="currentticket">
 	<tr>
-		<td><input type="radio" name="id" value="${currentevent.id}"></td>
-		<td>${currentevent.artist}</td>
-		<td>${currentevent.concertDate}</td>
-		<td>${currentevent.concertTime}</td>
+	 	<th>Price</th>
+	 	<th>Customer Name</th>
+	 	<th>Row</th>
+	 	<th>Seat Number</th>
+	</tr> 	
+	<tr>
+		<td>${currentticket.price}</td>
+		<td>${currentticket.customer}</td>
+		<td>${currentticket.venueRow}</td>
+		<td>${currentticket.seatNumber}</td>
 	</tr>
 	</c:forEach>
 </table>
@@ -36,7 +42,8 @@
 <input type="submit" value ="Edit Concert" name ="doThisToEvent">
 <input type="submit" value = "Add Concert Ticket" name = "doThisToEvent">
 <input type="submit" value = "View Tickets for this Concert" name = "doThisToEvent">
-<input type="submit" value = "View All Tickets Database" name ="doThisToEvent">
+<input type="submit" value = "View All Ticket Database" name ="doThisToEvent">
 </form>
+<a href="viewAllEventsServlet">Return to Events</a>
 </body>
 </html>

@@ -66,8 +66,25 @@ public class NavigationServlet extends HttpServlet {
 			path = "/index.html";
 
 		} else if (act.equals("Add Concert Ticket")) {
-			path = "/add-ticket.html";
-		} else if (act.equals("View Ticket Database")) {
+			try {
+				Integer tempId = Integer.parseInt(request.getParameter("id"));
+				ListEvent currentEvent = l.searchForEventById(tempId);
+				request.setAttribute("currentEvent", currentEvent);
+				System.out.println(currentEvent.toString());
+				path = "/add-ticket.jsp";
+			} catch (NumberFormatException e) {
+				System.out.println("Please select an event");
+			}
+		} else if (act.equals("View Tickets for this Concert")) {
+			try {
+				Integer tempId = Integer.parseInt(request.getParameter("id"));
+				ListEvent currentEvent = l.searchForEventById(tempId);
+				request.setAttribute("currentEvent", currentEvent);
+				path = "/view-concert-tickets.jsp";
+			} catch (NumberFormatException e) {
+				System.out.println("Please select an event");
+			}
+		} else if (act.equals("View All Tickets Database")) {
 			path = "/viewAllTicketsServlet";
 		}
 

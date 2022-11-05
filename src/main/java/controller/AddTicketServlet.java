@@ -54,14 +54,17 @@ public class AddTicketServlet extends HttpServlet {
 		String seat = request.getParameter("seat");
 		System.out.println(seat);
 		
-		ListTicket newTicket = new ListTicket (price, customer, row, seat);
+		String stringConcertId = request.getParameter("id");
+		int concertId = Integer.parseInt(stringConcertId);
+		ListEvent concert = concertDao.searchForEventById(concertId);
+		
+		ListTicket newTicket = new ListTicket (price, customer, row, seat, concert);
 		System.out.println(newTicket.toString());
 		ticketDao.insertTicket(newTicket);
 		
-		/*String stringConcertId = request.getParameter("id");
-		int concertId = Integer.parseInt(stringConcertId);
-		ListEvent concert = concertDao.searchForEventById(concertId);*/
-		//Create method in EventHelper to add new ticket to Event's list of Tickets
+		/*concert.addTicket(newTicket);
+		concertDao.updateEvent(concert);
+		//Create method in EventHelper to add new ticket to Event's list of Tickets*/
 		
 		getServletContext().getRequestDispatcher("/viewAllEventsServlet").forward(request, response);
 	}
