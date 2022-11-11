@@ -37,12 +37,6 @@
 	</tr>
 	</c:forEach>
 </table>
-<input type ="submit" value ="Add Concert" name="doThisToEvent">
-<input type ="submit" value ="Delete Concert" name="doThisToEvent">
-<input type="submit" value ="Edit Concert" name ="doThisToEvent">
-<input type="submit" value = "Add Concert Ticket" name = "doThisToEvent">
-<input type="submit" value = "View Tickets for this Concert" name = "doThisToEvent">
-<input type="submit" value = "View All Ticket Database" name ="doThisToEvent">
 </form>
 <a href="viewAllEventsServlet">Return to Events</a>
 </body>
